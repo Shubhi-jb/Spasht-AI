@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spasht AI</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
+    <!-- Inter Font from Google Fonts (already present) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Roboto Font from Google Fonts for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Noto Sans Devanagari for Hindi text -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'], // Default body font
+          headings: ['Roboto', 'sans-serif'], // Custom font for headings
+          mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'], // Keep system mono fonts
+          devanagari: ['"Noto Sans Devanagari"', 'sans-serif'], // New font for Hindi
+        },
+        colors: {
+          'primary-blue': '#1a73e8', // Google Blue
+          'primary-blue-dark': '#155bb9', // For hover states
+          'light-surface': '#F8F9FA', // Very light grey for background
+          'google-border': '#e0e0e0', // Standard light grey border for cards
+          'gray-text': '#3c4043', // Dark grey for general text on light background
+          'gray-subtle': '#70757a', // Lighter grey for secondary text
+
+          // Danger (Rose) - Material 3 inspired
+          'rose-50': '#FEECEB',
+          'rose-200': '#F2A099',
+          'rose-400': '#E85B50', // Brighter red for accents on dark bg (if needed)
+          'rose-700': '#C13023',
+          'rose-900': '#8B1E17',
+
+          // Warning (Amber) - Material 3 inspired
+          'amber-50': '#FFF8EB',
+          'amber-200': '#FFD58C',
+          'amber-400': '#FFB03A',
+          'amber-700': '#E67A00',
+          'amber-900': '#B35F00',
+
+          // Safe (Mint) - Material 3 inspired
+          'mint-50': '#E8F5E9',
+          'mint-200': '#A5D6A7',
+          'mint-400': '#66BB6A',
+          'mint-700': '#2E7D32',
+          'mint-900': '#1B5E20',
+        },
+        fontSize: {
+          // App.tsx / HomePage.tsx H1 styles
+          'display-h1': ['38px', { lineHeight: '1.6' }],
+          'display-h1-sm': ['50px', { lineHeight: '1.6' }],
+          'display-h1-lg': ['62px', { lineHeight: '1.6' }], // For HomePage h1
+
+          // Headings and Scam Score %
+          'section-h2': ['26px', { lineHeight: '1.6' }],
+          'section-h2-sm': ['32px', { lineHeight: '1.6' }],
+
+          // Verdict Text
+          'verdict-lg': ['32px', { lineHeight: '1.6' }],
+          'verdict-xl': ['38px', { lineHeight: '1.6' }],
+          'verdict-sm': ['28px', { lineHeight: '1.6' }], // For smaller screens if needed
+
+          // HomePage Subtitle
+          'subtitle-base': ['22px', { lineHeight: '1.6' }],
+          'subtitle-sm': ['26px', { lineHeight: '1.6' }],
+
+          // General content text
+          'content-lg': ['18px', { lineHeight: '1.6' }],
+          'content-xl': ['20px', { lineHeight: '1.6' }],
+          'content-base': ['16px', { lineHeight: '1.6' }],
+          'content-sm': ['18px', { lineHeight: '1.6' }], // For smaller screens
+
+          // Small text, e.g., for file details, regulatory status
+          'text-fine-base': ['14px', { lineHeight: '1.6' }],
+          'text-fine-sm': ['16px', { lineHeight: '1.6' }],
+
+          // Button/Tab text
+          'button-base': ['18px', { lineHeight: '1.6' }],
+          'button-sm': ['22px', { lineHeight: '1.6' }],
+        },
+        keyframes: {
+          slideInFromRight: {
+            '0%': { transform: 'translateX(100%)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+          },
+        },
+        animation: {
+          'slideInFromRight': 'slideInFromRight 0.5s ease-out forwards',
+        },
+      }
+    }
+  }
+</script>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-light-surface font-sans h-full">
+    <div id="root" class="w-full h-full"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
