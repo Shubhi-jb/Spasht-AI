@@ -203,4 +203,4 @@ Spasht-AI/
 
 ---
 
-**Built with Google AI | Protecting users from hidden legal traps**
+
